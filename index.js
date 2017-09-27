@@ -505,7 +505,7 @@ Mailchimp.prototype.request = function (options, done) {
         return;
       }
 
-      if (_.isString(response.body)) {
+      if (!response.body || _.isString(response.body)) {
         reject(Object.assign(
           new Error('Expected the response body to be json.'),
           {type: 'INVALID_RESPONSE', responseBody: response.body}
