@@ -470,6 +470,7 @@ Mailchimp.prototype.request = function (options, done) {
     var body = options.body || {};
     var params = options.params;
     var query = options.query;
+    var timeout = options.timeout;
 
     //Parems used to refer to query parameters, because of the mailchimp documentation.
     if (params) {
@@ -492,6 +493,7 @@ Mailchimp.prototype.request = function (options, done) {
       },
       json : body,
       qs : query,
+      timeout: timeout,
       headers : {
         'User-Agent' : 'mailchimp-api-v3 : https://github.com/thorning/node-mailchimp'
       }
